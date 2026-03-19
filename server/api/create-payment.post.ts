@@ -8,12 +8,10 @@ export default defineEventHandler(async (event) => {
     serverKey: process.env.MIDTRANS_SERVER_KEY
   })
 
-  const orderId = 'ORDER-' + Date.now()
-
   const transaction = await snap.createTransaction({
     transaction_details: {
-      order_id: orderId,
-      gross_amount: 10000 // harga token
+      order_id: 'ORDER-' + Date.now(),
+      gross_amount: 10000
     },
     customer_details: {
       email: body.email
