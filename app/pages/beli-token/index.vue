@@ -2,7 +2,7 @@
   const email = ref('')
 
   async function beli() {
-    console.log('CLICKED') // wajib muncul
+    console.log('CLICKED 🔥')
 
     const res = await $fetch('/api/create-payment', {
       method: 'POST',
@@ -23,6 +23,6 @@
 
     <input v-model="email" placeholder="email" />
 
-    <button @click="beli">Bayar</button>
+    <button type="button" @click="beli">Bayar</button>
   </div>
 </template>
