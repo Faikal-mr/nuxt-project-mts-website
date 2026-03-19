@@ -4,11 +4,6 @@
   const error = ref('')
 
   async function beli() {
-    if (!email.value) {
-      error.value = 'Email wajib diisi'
-      return
-    }
-
     loading.value = true
     error.value = ''
 
@@ -20,9 +15,11 @@
         }
       })
 
-      // 🔥 buka popup Midtrans Snap
+      console.log('RES:', res) // 🔥 lihat hasil API
+
       window.snap.pay(res.token)
     } catch (err) {
+      console.error('ERROR:', err) // 🔥 lihat error asli
       error.value = 'Gagal memulai pembayaran'
     } finally {
       loading.value = false
